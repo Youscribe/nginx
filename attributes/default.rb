@@ -57,10 +57,13 @@ default[:nginx][:gzip_types]        = [
   "application/json"
 ]
 
-default[:nginx][:keepalive]          = "on"
-default[:nginx][:keepalive_timeout]  = 65
-default[:nginx][:worker_processes]   = cpu[:total]
-default[:nginx][:worker_connections] = 1024
+default[:nginx][:keepalive]		= "on"
+default[:nginx][:keepalive_timeout]	= 65
+default[:nginx][:worker_processes]	= cpu[:total]
+default[:nginx][:worker_connections]	= 1024
+default['nginx']['worker_rlimit_nofile']	= false
+default['nginx']['multi_accept']	= false
+default['nginx']['epoll']		= false
 default[:nginx][:server_names_hash_bucket_size] = 64
 
 default[:nginx][:disable_access_log] = false
