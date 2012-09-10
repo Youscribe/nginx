@@ -12,7 +12,7 @@ error_log  <%= node['nginx']['log_dir'] %>/error.log;
 pid        <%= node['nginx']['pid'] %>;
 
 events {
-  worker_connections  <%= node[':nginx']['worker_connections'] %>;
+  worker_connections  <%= node['nginx']['worker_connections'] %>;
 <% if node['nginx']['multi_accept'] -%>
   multi_accept on;
 <% end -%>
