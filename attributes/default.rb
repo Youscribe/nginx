@@ -65,7 +65,7 @@ default['nginx']['worker_processes']   = cpu['total']
 default['nginx']['worker_connections'] = 1024
 default['nginx']['worker_rlimit_nofile'] = nil
 default['nginx']['multi_accept']       = false
-default['nginx']['epoll']              = false
+default['nginx']['event']              = nil #use default
 default['nginx']['server_names_hash_bucket_size'] = 64
 
 default['nginx']['disable_access_log'] = false

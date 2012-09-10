@@ -16,8 +16,8 @@ events {
 <% if node['nginx']['multi_accept'] -%>
   multi_accept on;
 <% end -%>
-<% if node['nginx']['epoll'] -%>
-  use epoll;
+<% if node['nginx']['event'] -%>
+  use <%= node['nginx']['event'] %>;
 <% end -%>
 }
 
