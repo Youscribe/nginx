@@ -7,7 +7,6 @@ daemon off;
 worker_rlimit_nofile <%= node['nginx']['worker_rlimit_nofile'] %>;
 <% end -%>
 
-
 error_log  <%= node['nginx']['log_dir'] %>/error.log;
 pid        <%= node['nginx']['pid'] %>;
 
@@ -16,8 +15,8 @@ events {
 <% if node['nginx']['multi_accept'] -%>
   multi_accept on;
 <% end -%>
-<% if node['nginx']['epoll'] -%>
-  use epoll;
+<% if node['nginx']['event'] -%>
+  use <%= node['nginx']['event'] %>;
 <% end -%>
 }
 
