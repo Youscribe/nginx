@@ -42,6 +42,12 @@ http {
 
   gzip  <%= node['nginx']['gzip'] %>;
   <% if node['nginx']['gzip'] == "on" %>
+  <% if node['nginx']['gunzip'] -%>
+  gunzip <%= node['nginx']['gunzip'] %>;
+  <% end -%>
+  <% if node['nginx']['gzip_static'] -%>
+  gzip_static <%= node['nginx']['gzip_static'] %>;
+  <% end -%>
   gzip_http_version <%= node['nginx']['gzip_http_version'] %>;
   gzip_comp_level <%= node['nginx']['gzip_comp_level'] %>;
   gzip_proxied <%= node['nginx']['gzip_proxied'] %>;
